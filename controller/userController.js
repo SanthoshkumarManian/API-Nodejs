@@ -1,6 +1,23 @@
 const fs=require('fs');
 const users=require('../models/userModel');
+const AppError = require('../utils/appError');
 
+exports.updateMe=(req,res,next)=>{
+    //1) create error if user Posts password data
+    if(req.body.password || req.body.passwordConfirm){
+        return next(new AppError("this is not for password updates..!",400))
+    }
+
+    //2) Update user document
+    const updatedUser=await users.findByIdAndUpdate(req.user.id,x,{
+        new :true,
+        runValidators:true
+    });
+ 
+    res.status(200).json({
+        status:"success"
+    })
+}
 exports.getAllUser=async(request,response)=>{
     try{
     const user=await users.find();
@@ -38,7 +55,7 @@ exports.createUser=async(request,response)=>{
     }
 }
 
-exports.getTour=async(request,response)=>{
+exports.getUser=async(request,response)=>{
     try{
         const id=await users.findById(request.params.id);
         response.status(200).json({
