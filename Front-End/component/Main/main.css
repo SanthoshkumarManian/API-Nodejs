@@ -1,0 +1,27 @@
+ /*   color:  #63FFB8; */
+.main{
+    font-size: x-large;
+    font-style: bold;
+    height: 95vh; 
+    background-image: linear-gradient(to right,
+    rgba(25, 218, 138, 0.575) ,
+    rgba(99, 255, 185, 0.548)),
+    url(../../../assets/images/Homepage.jpg);
+    background-size:cover;
+    background-position: top;
+    clip-path: polygon(0 0,100% 0,100% 75vh,0 100%);
+}
+
+@keyframes moveInLeft{
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    80%{
+        transform: translateX(-20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}

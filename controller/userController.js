@@ -2,14 +2,14 @@ const fs=require('fs');
 const users=require('../models/userModel');
 const AppError = require('../utils/appError');
 
-exports.updateMe=(req,res,next)=>{
+exports.updateMe=async(req,res,next)=>{
     //1) create error if user Posts password data
     if(req.body.password || req.body.passwordConfirm){
         return next(new AppError("this is not for password updates..!",400))
     }
 
     //2) Update user document
-    const updatedUser=await users.findByIdAndUpdate(req.user.id,x,{
+    const updatedUser= await users.findByIdAndUpdate(req.user.id,x,{
         new :true,
         runValidators:true
     });
@@ -84,7 +84,7 @@ exports.updateUser=async(request,response)=>{
 
     }catch(err){
         return response.status(404).json({
-            status:"erron",
+            status:"error",
             message:err
         });
     }
@@ -93,7 +93,7 @@ exports.updateUser=async(request,response)=>{
 exports.deleteUser=(request,response)=>{
     if(request.params.id * 1 >users.length){
         return response.status(404).json({
-            status:"erron",
+            status:"error",
             message:"Invalid ID"
         });
     }

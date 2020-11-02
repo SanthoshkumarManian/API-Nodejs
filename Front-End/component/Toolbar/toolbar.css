@@ -1,0 +1,29 @@
+*{
+    font-weight: 400;
+    font-family: Roboto;
+}
+nav{
+    display: flex;
+    padding: 10px 20px;
+    float: right;  
+}
+
+.head{
+    font-size: 30px;
+    font-style: bold;
+    margin-top: 20px;
+    position: absolute;
+    margin-left: 10px;
+}
+.button:link,
+.button:visited{
+    background-color:white;
+    color:black;
+    margin-left: 20px;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 30px;
+    margin-top: 20px;
+    font-size: medium;
+    box-shadow: 0 4px 4px 4px rgba(128, 128, 128, 0.301);
+}

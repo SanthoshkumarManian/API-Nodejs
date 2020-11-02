@@ -15,7 +15,7 @@ const signToken=(id)=>{
 }
 const createSendToken =(user,statusCode,res)=>{
     const token=signToken(user._id);
-    response.status(200).json({
+    res.status(statusCode).json({
         status:"Success",
         token,
         data:{
@@ -26,7 +26,7 @@ const createSendToken =(user,statusCode,res)=>{
 exports.signup=catchAsync(async(request,response)=>{
         const newUser=await User.create(request.body);
        
-       createSendToken(newUser,201,res);
+       createSendToken(newUser,201,response);
 });
 
 exports.login=async (request,response,next)=>{
@@ -44,7 +44,7 @@ exports.login=async (request,response,next)=>{
         if(!user || !correct){
          return next(new AppError("Incorrect email and password",401));
      }
-     createSendToken(user,200,res);
+     createSendToken(user,200,response);
 }
 
 exports.protect=async(req,res,next)=>{

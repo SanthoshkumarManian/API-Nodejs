@@ -10,19 +10,8 @@ mongoose.connect('mongodb://localhost:27017/natours',{
 
 const port=2020;
  
-app.listen(port,(req,res)=>{
+app.listen(3000,(req,res)=>{
     console.log("server is responed");
 });
  
 
-
-// const testTour =new TourModel({
-//     name:"santhoshkumar",
-//     rating:2.5,
-//     price:100
-// });
-
-// testTour
-// .save()
-// .then(doc=>console.log(doc))
-// .catch(err=>console.log(err))
