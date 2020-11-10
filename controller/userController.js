@@ -2,7 +2,7 @@ const fs=require('fs');
 const users=require('../models/userModel');
 const AppError = require('../utils/appError');
 
-exports.updateMe=async(req,res,next)=>{
+exports.updateMe=async (req,res,next)=>{
     //1) create error if user Posts password data
     if(req.body.password || req.body.passwordConfirm){
         return next(new AppError("this is not for password updates..!",400))
