@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding:0;
+}
+.container{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 98vh;
+    width: auto;
+    background-color:aqua;
+}
+.round_circle{
+    vertical-align: middle;
+    width: 125px;
+    height:125px;
+    border-radius: 50%;
+    margin-left: 200px;
+}
+.column{
+    display: inline-block;
+}
+.textfield{
+    width: 50%;
+}
+.left_side{
+    float: left;
+    margin-top: 20px;
+}
+.right_side{
+    float: right;
+    background-color: aquamarine;
+}
