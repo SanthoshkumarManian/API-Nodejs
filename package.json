@@ -55,7 +55,7 @@
     "debug": "ndb server.js",
     "start": "node server.js",
     "start:dev": "webpack-dev-server",
-    "build": "webpack -p",
+    "build": "webpack",
     "watch": "webpack --watch --hot -d",
     "dev": "nodemon server.js"
   },
